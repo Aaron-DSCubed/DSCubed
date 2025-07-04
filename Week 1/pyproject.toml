@@ -5,9 +5,6 @@ description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.11"
 dependencies = [
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     "dotenv>=0.9.9",
     "openai>=1.93.0",
     "pydantic>=2.11.7",
@@ -16,20 +13,4 @@ dependencies = [
     "rich>=14.0.0",
     "tzdata>=2025.2",
     "yfinance>=0.2.64",
-=======
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-    "openai>=1.93.0",
-    "pydantic>=2.11.7",
-    "python-dotenv>=1.1.1",
-    "rich>=14.0.0",
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 ]
