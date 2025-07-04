@@ -18,7 +18,7 @@ client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
 while True:
     # Create a conversation
-    user_input = input("Enter a message: ")
+    user_input = input("Enter a message. Type 'exit' to end the conversation: ")
     if user_input == "exit":
         break
     
