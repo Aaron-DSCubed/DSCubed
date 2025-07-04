@@ -1,11 +1,4 @@
 import os
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 import json
 from dotenv import load_dotenv
 from openai import OpenAI
@@ -14,42 +7,12 @@ from zoneinfo import ZoneInfo
 import yfinance as yf
 
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-#import requests
-import json
-from dotenv import load_dotenv
-from openai import OpenAI
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 
 # Load environment variables from .env file
 load_dotenv()
 
 # Access the API key
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
-=======
-APIkey = os.getenv("OPENAI_API_KEY")
-
-client = OpenAI(
-  api_key=APIkey
-)
-
-
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 
 # Define a function that performs calculations
 def calculate(operation, x, y):
@@ -105,13 +68,6 @@ calculator_function = {
     }
 }
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 def get_current_time(timezone_str: str) -> datetime:
     """Returns the current local date and 24-hour time (datetime object) in the specified timezone."""
     try:
@@ -185,37 +141,13 @@ messages = [
     {"role": "user", "content": "What's 241 multiplied by 18?"},
     {"role": "user", "content": "What is the current time in Tokyo?"},
     {"role": "user", "content": "What is the current stock price of Tesla?"}
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
-# Create a conversation
-messages = [
-    {"role": "system", "content": "You are a helpful assistant."},
-    {"role": "user", "content": "What's 241 multiplied by 18?"}
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
 ]
 
 # Get the model's response with the calculator function available
 response = client.chat.completions.create(
     model="gpt-4o-mini",
     messages=messages,
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
     tools=[calculator_function, get_current_time_function, get_stock_price_function],
-=======
-    tools=[calculator_function],
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
-    tools=[calculator_function, get_current_time_function, get_stock_price_function],
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
-    tools=[calculator_function, get_current_time_function, get_stock_price_function],
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
     tool_choice="auto",
     temperature=0.7,
     max_tokens=150
@@ -242,13 +174,6 @@ if assistant_message.tool_calls:
             # Call the function
             result = calculate(operation, x, y)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
                 # Add the function result to the conversation
             messages.append({
                 "role": "tool",
@@ -289,14 +214,6 @@ if assistant_message.tool_calls:
             # Call the function
             result = get_stock_price(ticker)
 
-<<<<<<< HEAD
-<<<<<<< HEAD
-=======
->>>>>>> 53ac750e83b57af9d7d5029c727bf4625dbdad12
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
-=======
->>>>>>> 185978f9bef0b1eec1a9616e09b6a2e7f4695b30
             # Add the function result to the conversation
             messages.append({
                 "role": "tool",
