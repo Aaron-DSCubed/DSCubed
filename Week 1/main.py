@@ -5,7 +5,7 @@ from openai import OpenAI
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import yfinance as yf
-import calculator
+from calculator import calculate, calculator_function
 
 
 
