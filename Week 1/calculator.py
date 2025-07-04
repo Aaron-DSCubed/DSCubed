@@ -1,5 +1,5 @@
 # Define a function that performs calculations
-def calculate(operation, x, y):
+def calculate(operation: str, x: float, y: float)->float:
     """
     Perform a mathematical operation on two numbers.
 

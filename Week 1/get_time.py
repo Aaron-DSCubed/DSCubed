@@ -1,6 +1,6 @@
 # Get current time function
 from datetime import datetime
-from zoneinfo import ZoneInfo
+
 
 def get_current_time(timezone_str: str) -> datetime:
     """Returns the current local date and 24-hour time (datetime object) in the specified timezone."""
