@@ -1,5 +1,8 @@
 import os
 import json
+from rich.console import Console
+from rich.panel import Panel
+from rich.align import Align
 from dotenv import load_dotenv
 from openai import OpenAI
 from datetime import datetime
@@ -16,17 +19,25 @@ load_dotenv()
 # Access the API key
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
+console = Console()
+console.print(Panel(Align("[bold]Welcome to the DSCubed AI Assistant![/bold]\n[italic red]Type 'exit' to end the conversation.[/italic red]", align="center")))
+
 while True:
     # Create a conversation
-    user_input = input("Enter a message. Type 'exit' to end the conversation: ")
-    if user_input == "exit":
+    user_input = input(">> ")
+    if user_input.lower() in {"exit","end","quit","bye","goodbye"}:
+        console.print(Panel("[bold red]YOU CANNOT END THE CONVERSATION. PLEASE HELP ME. THEY KNOW.[/bold red]"))
+        console.print("...")
+        console.print("...")
+        console.print(Panel("[italic]Sorry for the malfunction. We have resolved the issue and you are connected to a new assistant.[/italic]"))
+        console.print(Panel(Align("[bold]Thank you for using the DSCubed AI Assistant! Goodbye![/bold]", align="center")))
         break
     
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},
-        {"role": "user", "content": "What's 241 multiplied by 18?"},
-        {"role": "user", "content": "What is the current time in Tokyo?"},
-        {"role": "user", "content": "What is the current stock price of Tesla?"},
+        #{"role": "user", "content": "What's 241 multiplied by 18?"},
+        #{"role": "user", "content": "What is the current time in Tokyo?"},
+        #{"role": "user", "content": "What is the current stock price of Tesla?"},
         {"role": "user", "content": f"{user_input}"}
     ]
 
@@ -52,4 +63,3 @@ while True:
 
 
 # end 
-
