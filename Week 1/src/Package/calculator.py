@@ -9,7 +9,7 @@ def calculate(operation: str, x: float, y: float)->float:
         y: The second number
 
     Returns:
-        The result of the operation
+        The result of the operation as a float
     """
     if operation == "add":
         return x + y

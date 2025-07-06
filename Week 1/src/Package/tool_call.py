@@ -21,7 +21,7 @@ def tool_call_function(assistant_message, messages, client):
                 x = arguments.get("x")
                 y = arguments.get("y")
 
-                #print(f"Function call: calculate({operation}, {x}, {y})")
+                console.print(f"[italic](System Message) Function call: calculate({operation}, {x}, {y})[/italic]")
 
                 # Call the function
                 result = calculate(operation, x, y)
@@ -36,7 +36,7 @@ def tool_call_function(assistant_message, messages, client):
                 arguments = json.loads(tool_call.function.arguments)
                 timezone_str = arguments.get("timezone_str")
 
-                #print(f"Function call: get_current_time({timezone_str})")
+                console.print(f"[italic](System Message) Function call: get_current_time({timezone_str})[/italic]")
 
                 # Call the function
                 result = get_current_time(timezone_str)
@@ -50,7 +50,7 @@ def tool_call_function(assistant_message, messages, client):
                 arguments = json.loads(tool_call.function.arguments)
                 ticker = arguments.get("ticker")
 
-                #print(f"Function call: get_stock_price({ticker})")
+                console.print(f"[italic](System Message) Function call: get_stock_price({ticker})[/italic]")
 
                 # Call the function
                 result = get_stock_price(ticker)

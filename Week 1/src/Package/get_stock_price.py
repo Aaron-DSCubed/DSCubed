@@ -2,7 +2,15 @@
 import yfinance as yf
 
 def get_stock_price(ticker: str) -> float | None:
-    """Returns the latest stock price for the given ticker symbol."""
+    """
+    Returns the latest stock price for the given ticker symbol.
+
+    Args:
+        ticker: The ticker symbol of the stock, e.g., 'AAPL', 'TSLA'
+
+    Returns:
+        The price of the stock as a float
+    """
     try:
         stock = yf.Ticker(ticker)
         data = stock.history(period="1d")
