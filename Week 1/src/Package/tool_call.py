@@ -1,6 +1,6 @@
-from calculator import calculate, calculator_function
-from get_time import get_current_time, get_current_time_function
-from get_stock_price import get_stock_price, get_stock_price_function
+from Package.calculator import calculate, calculator_function
+from Package.get_time import get_current_time, get_current_time_function
+from Package.get_stock_price import get_stock_price, get_stock_price_function
 import json
 from rich.panel import Panel
 from rich.console import Console

@@ -8,18 +8,26 @@ from openai import OpenAI
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import yfinance as yf
-from calculator import calculate, calculator_function
-from get_time import get_current_time, get_current_time_function
-from get_stock_price import get_stock_price, get_stock_price_function
-from tool_call import tool_call_function
+import Package
+from Package.calculator import calculate, calculator_function
+from Package.get_time import get_current_time, get_current_time_function
+from Package.get_stock_price import get_stock_price, get_stock_price_function
+from Package.tool_call import tool_call_function
+
 
 # Load environment variables from .env file
 load_dotenv()
+console = Console()
 
 # Access the API key
-client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
+api_key=os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
-console = Console()
+# Check if the API key is valid
+if api_key is None:
+    console.print(Panel("[bold red]API key not found. Please check your .env file.[/bold red]"))
+    #exit()
+
 console.print(Panel(Align("[bold]Welcome to the DSCubed AI Assistant![/bold]\n[italic red]Type 'exit' to end the conversation.[/italic red]", align="center")))
 
 while True:
@@ -41,7 +49,7 @@ while True:
         {"role": "user", "content": f"{user_input}"}
     ]
 
-    # Get the model's response with the calculator function available
+    # Get the model's response with the functions available
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
