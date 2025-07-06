@@ -28,7 +28,7 @@ if api_key is None:
     console.print(Panel("[bold red]API key not found. Please check your .env file.[/bold red]"))
     #exit()
 
-console.print(Panel(Align("[bold]Welcome to the DSCubed AI Assistant![/bold]\n[italic red]Type 'exit' to end the conversation.[/italic red]", align="center")))
+console.print(Panel(Align("[bold]Welcome to the DSCubed AI Assistant![/bold]\n[italic]Type 'help' to see the list of available tools.[/italic]\n[italic red]Type 'exit' to end the conversation.[/italic red]", align="center")))
 
 while True:
     # Create a conversation
@@ -40,6 +40,10 @@ while True:
         console.print(Panel("[italic]Sorry for the malfunction. We have resolved the issue and you are connected to a new assistant.[/italic]"))
         console.print(Panel(Align("[bold]Thank you for using the DSCubed AI Assistant! Goodbye![/bold]", align="center")))
         break
+
+    if user_input.lower() in {"help"}:
+        console.print(Panel("[bold]Available tools:[/bold]\n[italic] - calculator (add, subtract, multiply, divide)[/italic]\n[italic] - get current time in a given timezone (e.g. 'Asia/Tokyo')[/italic]\n[italic] - get stock price of a given stock (e.g. 'AAPL')[/italic]"))
+        continue
     
     messages = [
         {"role": "system", "content": "You are a helpful assistant."},

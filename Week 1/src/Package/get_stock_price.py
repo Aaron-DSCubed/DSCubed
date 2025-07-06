@@ -1,5 +1,8 @@
 # Get stock price function
 import yfinance as yf
+from rich.console import Console
+
+console = Console()
 
 def get_stock_price(ticker: str) -> float | None:
     """
@@ -17,10 +20,10 @@ def get_stock_price(ticker: str) -> float | None:
         if not data.empty:
             return data["Close"].iloc[-1]
         else:
-            print("No data available for", ticker)
+            console.print(f"[italic red](System Message) No data available for {ticker}[/italic red]")
             return None
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        console.print(f"[italic red](System Message) Error fetching data: {e}[/italic red]")        
         return None
 
 get_stock_price_function = {

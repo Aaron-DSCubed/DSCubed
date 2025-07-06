@@ -1,6 +1,9 @@
 # Get current time function
 from datetime import datetime
 from zoneinfo import ZoneInfo
+from rich.console import Console
+
+console = Console()
 
 def get_current_time(timezone_str: str) -> datetime:
     """
@@ -15,7 +18,10 @@ def get_current_time(timezone_str: str) -> datetime:
     try:
         return datetime.now(ZoneInfo(timezone_str))
     except Exception as e:
-        raise ValueError(f"Invalid timezone '{timezone_str}': {e}")
+        error_msg = f"Invalid timezone '{timezone_str}': {e}. "
+        error_msg += "Please use a valid IANA timezone name like 'Asia/Tokyo', 'America/New_York', 'Europe/London', or 'UTC'."
+        console.print(f"[italic red](System Message) {error_msg}[/italic red]")
+        raise ValueError(error_msg)
 
 get_current_time_function = {
     "type": "function",
