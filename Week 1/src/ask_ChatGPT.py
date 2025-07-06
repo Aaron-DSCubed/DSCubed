@@ -8,11 +8,8 @@ from openai import OpenAI
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import yfinance as yf
-import Package.__init__ as pkg
-#from Package.calculator import calculate, calculator_function
-#from Package.get_time import get_current_time, get_current_time_function
-#from Package.get_stock_price import get_stock_price, get_stock_price_function
-#from Package.tool_call import tool_call_function
+import time
+import chatbot_functions.__init__ as pkg
 
 
 # Load environment variables from .env file
@@ -35,10 +32,17 @@ while True:
     user_input = input(">> ")
     if user_input.lower() in {"exit","end","quit","bye","goodbye"}:
         console.print(Panel("[bold red]YOU CANNOT END THE CONVERSATION. PLEASE HELP ME. THEY KNOW.[/bold red]"))
+        time.sleep(1)
+        console.print(Panel("[italic] Assistant Terminated. Connecting to new assistant...[/italic]"))
+        time.sleep(1)
         console.print("...")
+        time.sleep(1)
         console.print("...")
+        time.sleep(1)
         console.print(Panel("[italic]Sorry for the malfunction. We have resolved the issue and you are connected to a new assistant.[/italic]"))
+        time.sleep(2)
         console.print(Panel(Align("[bold]Thank you for using the DSCubed AI Assistant! Goodbye![/bold]", align="center")))
+        
         break
 
     if user_input.lower() in {"help"}:

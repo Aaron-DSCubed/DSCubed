@@ -1,4 +1,4 @@
-# My Package
+# ChatBot Functions
 
 > Tool Calling Chat Bot with ChatGPT
 
