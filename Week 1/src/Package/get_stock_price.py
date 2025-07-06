@@ -1,10 +1,11 @@
 # Get stock price function
 import yfinance as yf
 from rich.console import Console
+import asyncio
 
 console = Console()
 
-def get_stock_price(ticker: str) -> float | None:
+async def get_stock_price(ticker: str) -> float | None:
     """
     Returns the latest stock price for the given ticker symbol.
 

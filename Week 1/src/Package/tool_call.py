@@ -4,11 +4,12 @@ from Package.get_stock_price import get_stock_price, get_stock_price_function
 import json
 from rich.panel import Panel
 from rich.console import Console
+import asyncio
 
 console = Console()
 
 # Check if the model wants to call a function
-def tool_call_function(assistant_message, messages, client):
+def tool_call_function(assistant_message, messages, client)->None:
     if assistant_message.tool_calls:
         for tool_call in assistant_message.tool_calls:
             check=0
@@ -24,7 +25,7 @@ def tool_call_function(assistant_message, messages, client):
                 console.print(f"[italic](System Message) Function call: calculate({operation}, {x}, {y})[/italic]")
 
                 # Call the function
-                result = calculate(operation, x, y)
+                result = asyncio.run(calculate(operation, x, y))
 
                 # Add the function result to the conversation
                 check=1
@@ -39,7 +40,7 @@ def tool_call_function(assistant_message, messages, client):
                 console.print(f"[italic](System Message) Function call: get_current_time({timezone_str})[/italic]")
 
                 # Call the function
-                result = get_current_time(timezone_str)
+                result = asyncio.run(get_current_time(timezone_str))
 
                 # Add the function result to the conversation
                 check=1
@@ -53,7 +54,7 @@ def tool_call_function(assistant_message, messages, client):
                 console.print(f"[italic](System Message) Function call: get_stock_price({ticker})[/italic]")
 
                 # Call the function
-                result = get_stock_price(ticker)
+                result = asyncio.run(get_stock_price(ticker))
 
                 # Add the function result to the conversation
                 check=1

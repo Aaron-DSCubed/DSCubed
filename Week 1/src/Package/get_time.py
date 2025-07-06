@@ -2,10 +2,11 @@
 from datetime import datetime
 from zoneinfo import ZoneInfo
 from rich.console import Console
+import asyncio
 
 console = Console()
 
-def get_current_time(timezone_str: str) -> datetime:
+async def get_current_time(timezone_str: str) -> datetime:
     """
     Returns the current local date and 24-hour time (datetime object) in the specified timezone.
     

@@ -19,3 +19,10 @@
 - get_stock_price.py: get_stock_price(ticker) that takes in the ticker symbol of the stock, e.g., 'AAPL', 'TSLA' and returns the current price of the stock. Also includes the function schema.
 - get_time.py: get_current_time(timezone_str) that takes in the IANA timezone name, e.g., 'Asia/Tokyo', 'America/New_York' and returns the current local date and 24-hour time in the specified timezone. Also includes the function schema.
 
+---
+
+## Set Up Intructions
+
+- See pyproject.toml for list of dependencies
+- Insert valid ChatGPT API Key in an .env file
+- Run ask_ChatGPT.py
