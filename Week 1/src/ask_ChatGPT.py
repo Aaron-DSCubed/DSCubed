@@ -8,11 +8,11 @@ from openai import OpenAI
 from datetime import datetime
 from zoneinfo import ZoneInfo
 import yfinance as yf
-import Package
-from Package.calculator import calculate, calculator_function
-from Package.get_time import get_current_time, get_current_time_function
-from Package.get_stock_price import get_stock_price, get_stock_price_function
-from Package.tool_call import tool_call_function
+import Package.__init__ as pkg
+#from Package.calculator import calculate, calculator_function
+#from Package.get_time import get_current_time, get_current_time_function
+#from Package.get_stock_price import get_stock_price, get_stock_price_function
+#from Package.tool_call import tool_call_function
 
 
 # Load environment variables from .env file
@@ -53,7 +53,7 @@ while True:
     response = client.chat.completions.create(
         model="gpt-4o-mini",
         messages=messages,
-        tools=[calculator_function, get_current_time_function, get_stock_price_function],
+        tools=[pkg.calculator_function, pkg.get_current_time_function, pkg.get_stock_price_function],
         tool_choice="auto",
         temperature=0.7,
         max_tokens=150
@@ -64,7 +64,7 @@ while True:
     messages.append(assistant_message.model_dump())
 
     # Check if the model wants to call a function
-    tool_call_function(assistant_message, messages, client)
+    pkg.tool_call_function(assistant_message, messages, client)
 
 
 
